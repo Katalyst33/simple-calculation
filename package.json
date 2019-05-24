@@ -1,0 +1,16 @@
+{
+  "name": "simple-calculation",
+  "version": "1.0.0",
+  "description": "handling user inputs with vue js",
+  "main": "index.js",
+  "dependencies": {
+    "vue": "^2.6.10",
+    "bootstrap": "^4.3.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

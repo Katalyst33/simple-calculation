@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Form Handling in Vue</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script rel="script" src="node_modules/vue/dist/vue.min.js"></script>
+</head>
+<body>
+
+<div  class="" id="app">
+    <h1 class="text-center">Form Handling in Vue</h1>
+
+
+    <div class="container">
+        <small class="text-center" v-model="message">{{message}}</small>
+
+        <div class="row">
+            <div class="col-4">
+                <small>Marital Status:{{mStatus}}</small>
+                <div class="form-check pt-3">
+                    <label class="form-check-label">
+                        <input type="radio"  value="Single" class="form-check-input" v-model="mStatus">
+                        Single
+                    </label>
+                    <br>
+                    <label class="form-check-label">
+                        <input type="radio"  value="Married" class="form-check-input" v-model="mStatus">
+                        Married
+                    </label>
+                </div>
+
+            </div>
+            <div class="col-4">
+                <div class="form-group">
+                    <label for="">No of Children:{{counter}}</label>
+                    <input v-model="counter" type="number"
+                           class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+                    <small id="helpId" class="form-text text-muted"></small>
+                </div>
+
+                <input v-on:click="counter +=1" class="btn btn-dark" type="button" value="+">
+                <input v-on:click="counter -=1" class="btn btn-dark" type="button" value=" - ">
+            </div>
+
+            <div class="col-4">
+                <div class="form-group">
+                    <label for="">Room type</label>
+                    <select v-model="roomType" class="form-control" name="" id="">
+                        <option>Bronze room</option>
+                        <option>Silver Room</option>
+                        <option>Gold Room</option>
+                    </select>
+                </div>
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+    <div class="container">
+        <div class="row pt-5">
+        <div class="col-4">
+            {{mStatus}}
+        </div>
+        <div class="col-4">
+            {{counter}}
+        </div>
+        <div class="col-4">
+            {{roomType}}
+        </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="text-center pt-5">
+            <h4>Total Price: {{total}}</h4>
+        </div>
+    </div>
+
+
+</div>
+
+
+
+
+<!-- Optional JavaScript -->
+
+<script src="controller.js" ></script>
+
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+</html>
+
