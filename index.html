@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <script rel="script" src="node_modules/vue/dist/vue.min.js"></script>
+    <script rel="script" src="node_modules/vue/dist/vue.js"></script>
 </head>
 <body>
 
@@ -19,19 +19,20 @@
 
 
     <div class="container">
-        <small class="text-center" v-model="message">{{message}}</small>
+<!--        <small class="text-center" v-model="message">{{message}}</small>-->
 
         <div class="row">
             <div class="col-4">
-                <small>Marital Status:{{mStatus}}</small>
+                <small>Marital Status:{{mStatus.title}}</small>
                 <div class="form-check pt-3">
                     <label class="form-check-label">
-                        <input type="radio"  value="Single" class="form-check-input" v-model="mStatus">
+                        <input type="radio"  value="single" class="form-check-input" v-on:click="mPrice"  v-model="mStatus.title">
                         Single
                     </label>
+
                     <br>
                     <label class="form-check-label">
-                        <input type="radio"  value="Married" class="form-check-input" v-model="mStatus">
+                        <input type="radio"  value="married" class="form-check-input" v-on:click="mPrice"  v-model="mStatus.title">
                         Married
                     </label>
                 </div>
@@ -40,22 +41,22 @@
             <div class="col-4">
                 <div class="form-group">
                     <label for="">No of Children:{{counter}}</label>
-                    <input v-model="counter" type="number"
+                    <input   v-model="counter" type="number"
                            class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
                     <small id="helpId" class="form-text text-muted"></small>
                 </div>
 
-                <input v-on:click="counter +=1" class="btn btn-dark" type="button" value="+">
-                <input v-on:click="counter -=1" class="btn btn-dark" type="button" value=" - ">
+                <input v-on:click="increment" class="btn btn-dark" type="button" value="+">
+                <input v-on:click="decrement" class="btn btn-dark" type="button" value=" - ">
             </div>
 
             <div class="col-4">
                 <div class="form-group">
-                    <label for="">Room type</label>
-                    <select v-model="roomType" class="form-control" name="" id="">
-                        <option>Bronze room</option>
-                        <option>Silver Room</option>
-                        <option>Gold Room</option>
+                    <label for="">Room type:<br>{{roomType.title}}</label>
+                    <select v-on:change="rPrice" v-model="roomType.title" class="form-control" >
+                        <option value="bronze">Bronze room</option>
+                        <option value="silver">Silver Room</option>
+                        <option value="gold">Gold Room</option>
                     </select>
                 </div>
             </div>
@@ -68,20 +69,22 @@
 
     <div class="container">
         <div class="row pt-5">
-        <div class="col-4">
-            {{mStatus}}
+        <div class="col-4 bg-info">
+            <small>marriage price:</small>
+           <h4> {{mStatus.price}}</h4>
         </div>
         <div class="col-4">
-            {{counter}}
+            <span>{{counter}}</span>
+
         </div>
         <div class="col-4">
-            {{roomType}}
+            {{roomType.price}}
         </div>
         </div>
     </div>
     <div class="container">
         <div class="text-center pt-5">
-            <h4>Total Price: {{total}}</h4>
+            <h4 >Total Price: {{mStatus.price + counter + roomType.price}}</h4>
         </div>
     </div>
 

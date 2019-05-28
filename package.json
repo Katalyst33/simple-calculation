@@ -4,10 +4,12 @@
   "description": "handling user inputs with vue js",
   "main": "index.js",
   "dependencies": {
-    "vue": "^2.6.10",
-    "bootstrap": "^4.3.1"
+    "bootstrap": "^4.3.1",
+    "vue": "^2.6.10"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "laravel-mix": "^4.0.15"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
